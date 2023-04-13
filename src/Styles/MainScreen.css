@@ -8,8 +8,24 @@
     cursor: pointer;
     border-radius: 10px;
     width: 200px;
+    box-shadow: 2px 4px 6px 0px rgba(0,0,0,0.19);
+-webkit-box-shadow: 2px 3px 6px 0px rgba(0,0,0,0.49);
+-moz-box-shadow: 2px 3px 6px 0px rgba(0,0,0,0.49);
 }
 
 .main_buttons:active {
     background-color: #2d202e;
+}
+
+.about_display {
+    background-color: #332f44;
+    opacity: 0.8;
+    height: 800px;
+    width: 800px;
+    position: absolute;
+    border-radius: 15px;
+}
+
+.none {
+    display: none;
 }
