@@ -37,7 +37,7 @@ export default function GameDisplay ({gameShowHandler}) {
 
         for (let i = 0; i < 6; i++) {
           let random = getRandomColor()
-          i === num ? resul.push(<h5 style={{height:"75px",width:"230px",margin:"80px",cursor: "pointer",backgroundColor: "#312333",padding:"5px",borderRadius:"10px"}} onClick={() => setScore(score + 1)}>{color.rgb}  {color.hex}</h5>) : resul.push(<h5 style={{height:"75px",width:"230px",margin:"80px",cursor: "pointer",backgroundColor: "#312333",padding:"5px",borderRadius:"10px"}} onClick={() => setLose(true)}>{random.rgb}  {random.hex}</h5>)
+          i === num ? resul.push(<h5 style={{height:"9vh",width:"13vw",margin:"4vw",cursor: "pointer",backgroundColor: "#312333",padding:"5px",borderRadius:"10px",minWidth:"70px"}} onClick={() => setScore(score + 1)}>{color.rgb}  {color.hex}</h5>) : resul.push(<h5 style={{height:"9vh",width:"13vw",margin:"4vw",cursor: "pointer",backgroundColor: "#312333",padding:"5px",borderRadius:"10px",minWidth:"70px"}} onClick={() => setLose(true)}>{random.rgb}  {random.hex}</h5>)
         }
         return resul
       }
