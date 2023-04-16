@@ -1,0 +1,13 @@
+
+.color_toguess {
+    background-color: #fff;
+    height: 150px;
+    width: 1000px;
+}
+
+.option-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
