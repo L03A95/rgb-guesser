@@ -31,7 +31,7 @@ export default function MainScreen () {
                 <GameDisplay gameShowHandler={gameShowHandler}/>
             </div>
             
-            <h3>High Score: 0</h3>
+            <h3>High Score: {localStorage.getItem("Score") ? localStorage.getItem("Score") : 0}</h3>
         </>
     )
 }

@@ -4,7 +4,7 @@ import "../Styles/Game.css"
 
 export default function GameDisplay ({gameShowHandler}) {
     const [score, setScore] = useState(0)
-
+    const [lose, setLose] = useState(false)
 
     function getRandomColor() {
         var r = Math.floor(Math.random() * 256);
@@ -22,13 +22,22 @@ export default function GameDisplay ({gameShowHandler}) {
         return hex.length == 1 ? "0" + hex : hex;
       }
 
+      function closeLose () {
+        let localScore = localStorage.getItem("Score") 
+        
+        if(score > localScore)localStorage.setItem("Score",score)
+       
+        setScore(0)
+        setLose(false)
+      }
+
       function options(color) {
         let resul = []
         let num = Math.floor(Math.random() * 6);
 
         for (let i = 0; i < 6; i++) {
           let random = getRandomColor()
-          i === num ? resul.push(<h5 style={{height:"40px",width:"230px",margin:"80px"}}>{color.rgb}  {color.hex}</h5>) : resul.push(<h5 style={{height:"40px",width:"230px",margin:"80px"}}>{random.rgb}  {random.hex}</h5>)
+          i === num ? resul.push(<h5 style={{height:"75px",width:"230px",margin:"80px",cursor: "pointer",backgroundColor: "#312333",padding:"5px",borderRadius:"10px"}} onClick={() => setScore(score + 1)}>{color.rgb}  {color.hex}</h5>) : resul.push(<h5 style={{height:"75px",width:"230px",margin:"80px",cursor: "pointer",backgroundColor: "#312333",padding:"5px",borderRadius:"10px"}} onClick={() => setLose(true)}>{random.rgb}  {random.hex}</h5>)
         }
         return resul
       }
@@ -38,8 +47,8 @@ export default function GameDisplay ({gameShowHandler}) {
 
         let styleColor = {
           height: "150px",
-          width: "1400px",
-          marginLeft:"65px",
+          width: "73vw",
+          marginLeft:"3vw",
           backgroundColor: colorCorrecto.rgb
         }
 
@@ -56,9 +65,17 @@ export default function GameDisplay ({gameShowHandler}) {
 
     return(
         <>
-            <strong onClick={() => gameShowHandler(false,true)}>Main menu</strong>
-            <strong>Score: {score}</strong>
+            <div className="game_nav">
+              <strong onClick={() => gameShowHandler(false,true)} className="menu_btn">Main menu</strong>
+              <strong>Score: {score}</strong>
+            </div>
+            
             {game()}
+            <div className={lose ? "lose_screen" : "hidden"}>
+              <p onClick={() => closeLose()} className="play_again_btn">Play again</p>
+              <br></br>
+              <h1>You lose, your score was: {score}</h1>
+            </div>
         </>
     )
 }
