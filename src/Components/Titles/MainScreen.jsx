@@ -23,7 +23,7 @@ export default function MainScreen () {
 
     return (
         <>
-            <img src={logo} alt="logo_rgb_guesser"/>
+            <img src={logo} alt="logo_rgb_guesser" className="logo"/>
             <button className="main_buttons" onClick={() => gameShowHandler(true)}>Play</button>
             <button className="main_buttons" onClick={() => aboutShowHandler(true)}>About</button>
             <div  className={showAbout}>
